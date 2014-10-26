@@ -1,0 +1,22 @@
+consulserver:
+  image: progrium/consul
+  command: -server -bootstrap
+  ports:
+    - "18300:8300"
+    - "18400:8400"
+    - "18500:8500"
+consulclientA:
+  image: progrium/consul
+  command: -join consulserver
+  links:
+    - consulserver
+consulclientB:
+  image: progrium/consul
+  command: -join consulserver
+  links:
+    - consulserver
+consulclientC:
+  image: progrium/consul
+  command: -join consulserver
+  links:
+    - consulserver

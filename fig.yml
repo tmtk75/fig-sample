@@ -1,0 +1,13 @@
+web:                        # Service name
+  build: .                  # Build with ./Dockerfile
+  command: python app.py    # Command at container
+  ports:
+    - "5000:5000"           # Port forward <host>:<container>
+  volumes:
+    - .:/code               # <local>:<container>
+  links:
+    - redis:redis           # <service name>:<alias>
+
+redis:
+  image: redis              # use redis image on DockerHUB
+
