@@ -14,9 +14,9 @@ run:
 	fig run web ls -l
 
 setup: .e/bin/pip
-	.e/bin/pip -r requirements.txt
+	.e/bin/pip install -r requirements.txt
 
-.e/bin/fig:
+.e/bin/fig: .e/bin/pip
 	.e/bin/pip install -U fig
 
 .e/bin/pip:
